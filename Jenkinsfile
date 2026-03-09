@@ -1,22 +1,17 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven'
-        jdk 'JDK21'
-    }
-
     stages {
 
-        stage('Clone Repository') {
+        stage('Clone') {
             steps {
-                git 'https://github.com/YOUR_USERNAME/student-calculator.git'
+                git 'https://github.com/Kanish-Kumar-S/maven-proj.git'
             }
         }
 
-        stage('Compile') {
+        stage('Build') {
             steps {
-                sh 'mvn compile'
+                sh 'mvn clean compile'
             }
         }
 
@@ -31,6 +26,5 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-
     }
 }
